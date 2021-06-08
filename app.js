@@ -2,9 +2,9 @@ if (process.env.NODE_ENV !== "production") {
   require('dotenv').config();
 }
 
-// const db_url = process.env.DB_URL;
+const db_url = process.env.DB_URL;
 const secret =  process.env.SECRET || 'thisshouldbebettersecret' ;
-const db_url = "mongodb://localhost:27017/hotel101" ;
+// const db_url = "mongodb://localhost:27017/hotel101" ;
 
 const express = require("express");
 const app = express();
