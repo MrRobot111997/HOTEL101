@@ -1,0 +1,61 @@
+<% layout('layout/boilerplate') %>
+
+
+
+<div class="row">
+  <h2 class="text-center">Edit Your Hotel Details</h2>
+  <form action="/hotels/<%=hotel._id%>?_method=PUT" class="needs-validation" enctype="multipart/form-data" method="post"
+    novalidate>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input class="form-control" type="text" name="hotel[title]" id="title" placeholder="Enter the Title"
+        value="<%= hotel.title %>" required />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location:</label>
+      <input class="form-control" type="text" name="hotel[location]" id="location" placeholder="Enter Hotel Location"
+        value="<%= hotel.location %>" required />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL:</label>
+      <input class="form-control" type="file" name="hotel[images]" id="image" multiple>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Hotel Price:</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="price-label">$</span>
+        <input type="text" class="form-control" id="price" name="hotel[price]" placeholder="0.00"
+          value="<%= hotel.price %>" aria-label="Price" aria-describedby="price-label" required />
+      </div>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea class="form-control" type="text" name="hotel[description]" id="description"
+        placeholder="Write Your Description" required>
+<%= hotel.description %></textarea>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <% hotel.images.forEach( function( imgs , i ) { %>
+
+      <div class="card" style="width: 18rem;">
+        <img src="<%=imgs.thumbnail%>" alt="" class="img-thumbnail">
+        <div class="card-body">
+          <input type="checkbox" name="hotel[deleteImages]" id="image-<%= i %>" value="<%= imgs.filename %>">
+          <label for="image-<%= i %>">Delete?</label>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-warning">Save Edits</button>
+      <button class="btn btn-danger" formaction="/hotels/<%= hotel._id %>" formmethod="get">
+        Cancel!!
+      </button>
+    </div>
+  </form>
+</div>

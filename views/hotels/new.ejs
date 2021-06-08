@@ -1,0 +1,40 @@
+<% layout( "layout/boilerplate" ) %>
+<div class="row">
+  <h2 class="text-center">New Hotel</h2>
+  <form action="/hotels" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input class="form-control" type="text" name="hotel[title]" id="title" placeholder="Enter the Title" required />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location:</label>
+      <input class="form-control" type="text" name="hotel[location]" id="loaction" placeholder="Enter Hotel Location"
+        required />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL:</label>
+      <input class="form-control" type="file" name="hotel[images]" id="image" multiple>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Hotel's Price:</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="price-label">$</span>
+        <input type="text" class="form-control" id="price" name="hotel[price]" placeholder="0.00" aria-label="Price"
+          aria-describedby="price-label" required />
+      </div>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea class="form-control" type="text" name="hotel[description]" id="description"
+        placeholder="Write Your Description" required></textarea>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-success">Add Hotel!</button>
+    </div>
+  </form>
+</div>
