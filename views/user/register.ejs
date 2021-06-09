@@ -1,5 +1,7 @@
 <% layout( "layout/boilerplate" ) %>
 
+
+<%- include( "../partials/flash" ) %>
 <div class="container d-flex justify-content-center align-items-center mt-5">
     <div class="row">
         <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
@@ -26,6 +28,7 @@
                             <input type="password" class="form-control" name="user[password]" id="password"
                                 placeholder="Enter Password..." required>
                             <div class="valid-feedback">All Good</div>
+                            <div id="validationServerUsernameFeedback" class="invalid-feedback">"Required Length Min. 6 to 12 Characters"</div>
                         </div>
                         <button class="btn btn-success">Register</button>
                         <button class="btn btn-danger btn-primary" type="button"
