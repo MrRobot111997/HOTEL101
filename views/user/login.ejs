@@ -1,0 +1,36 @@
+<% layout( "layout/boilerplate" ) %>
+
+
+<%- include( "../partials/flash" ) %>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <img src="https://res.cloudinary.com/dhbkhmq8a/image/upload/v1622981314/Hotel101/pool-for-google-blog_cmrpgu.jpg"
+                    alt="" class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title text-dark">Login</h5>
+                    <form action="/login" class="needs-validation" method="post" novalidate>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Enter Username</label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                placeholder="Enter Username..." required>
+                            <div class="valid-feedback">All Good</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Enter Password</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                placeholder="Enter Password..." pattern=".{6,12}" required title= required>
+                            <div class="valid-feedback">All Good</div>
+                            <div id="validationServerUsernameFeedback" class="invalid-feedback">"Required Length Min. 6 to 12 Characters"</div>
+                        </div>
+                        <button class="btn btn-success btn-primary">Login</button>
+                        <button class="btn btn-danger btn-primary" type="button"
+                            onclick="javascript:window.location='/hotels'">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
