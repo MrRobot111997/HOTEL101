@@ -26,6 +26,8 @@ const hotelRoutes = require("./routes/hotels");
 const reviewRoutes = require("./routes/reviews");
 const userRoutes = require("./routes/users");
 
+const mongoSanitize = require('express-mongo-sanitize');
+
 const ejsMate = require("ejs-mate");
 app.engine("ejs", ejsMate);
 
@@ -73,6 +75,8 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use( mongoSanitize() );
 
 mongoose.connect( db_url, {
   useNewUrlParser: true,

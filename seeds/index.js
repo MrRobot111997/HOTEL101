@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 const cities = require("./cities");
-const {
-  places,
-  descriptors
-} = require("./seedHelpers");
+const { places, descriptors } = require("./seedHelpers");
 const Hotel = require("../models/hotel");
 
 mongoose.connect("mongodb://localhost:27017/hotel101", {
@@ -19,8 +16,6 @@ db.once("open", () => {
   console.log("Database connected");
 });
 
-
-
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
@@ -30,29 +25,31 @@ const seedDB = async () => {
     const price = Math.floor(Math.random() * 20) + 10;
     const randomLocation = `${cities[random1000].city}, ${cities[random1000].state}`;
 
-
     const hotel = new Hotel({
       //YOUR USER ID
-      author: "60ba2dfb55d188973035b3d8",
+      author: "60e2d539f89c9c2fc88c8af3",
       location: randomLocation,
       title: `${sample(descriptors)} ${sample(places)}`,
-      images: [{
+      images: [
+        {
           url: "https://res.cloudinary.com/dhbkhmq8a/image/upload/v1622981314/Hotel101/four-seasons-hotel-lion-palace-st-petersburg-200004-1_myuqnw.jpg",
-          filename: "Hotel101/four-seasons-hotel-lion-palace-st-petersburg-200004-1_myuqnw"
+          filename:
+            "Hotel101/four-seasons-hotel-lion-palace-st-petersburg-200004-1_myuqnw",
         },
         {
           url: "https://res.cloudinary.com/dhbkhmq8a/image/upload/v1622981314/Hotel101/pool-for-google-blog_cmrpgu.jpg",
-          filename: "Hotel101/pool-for-google-blog_cmrpgu"
-        }
+          filename: "Hotel101/pool-for-google-blog_cmrpgu",
+        },
       ],
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque unde perspiciatis quo aliquid illum minima ipsa animi a velit officiis nulla quia, blanditiis vero dicta nam eveniet. Quasi, quod fuga.",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque unde perspiciatis quo aliquid illum minima ipsa animi a velit officiis nulla quia, blanditiis vero dicta nam eveniet. Quasi, quod fuga.",
       price: price,
       geometry: {
         type: "Point",
         coordinates: [
           cities[random1000].longitude,
           cities[random1000].latitude,
-        ]
+        ],
       },
       // description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolores vero perferendis laudantium, consequuntur voluptatibus nulla architecto, sit soluta esse iure sed labore ipsam a cum nihil atque molestiae deserunt!',
       // price,
